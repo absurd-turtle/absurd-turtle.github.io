@@ -6,11 +6,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/images.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC&family=Koulen&family=Montserrat:wght@100;200;300;400;500&family=Rock+Salt&display=swap"
     rel="stylesheet">
+
+  <script>
+    function toggleCareerMenu() {
+      let careerMenu = document.getElementById("careerMenu")
+      if (careerMenu.style.visibility == "visible") {
+        careerMenu.style.visibility = "hidden"
+      }
+      else {
+        careerMenu.style.visibility = "visible"
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -26,21 +39,47 @@
       <a href="#projects">Projects</a>
     </div>
     <div class="item">
-      <a href="#career">career</a>
-    </div>
-    <div class="item">
-      <a href="#academicCareer">academic career</a>
-    </div>
-    <div class="item">
-      <a href="#workCareer">work career</a>
+      <a href="#career">Career</a>
+      <button onclick="toggleCareerMenu()">&gt;</button>
+      <div id="careerMenu" style="visibility: hidden;">
+        <div class=" item">
+          <a href="#academicCareer">academic career</a>
+        </div>
+        <div class="item">
+          <a href="#workCareer">work career</a>
+        </div>
+      </div>
     </div>
   </header>
+
   <section class="contentSection about" id="about" ref="about">
-    <div class="subsection">
-      <h2>About me</h2>
-      <p>Hello there. My name is Samuel Daurer.
-        I am currently studying Computer Science.
-        However, I also have some work experience in the field of web development already.
+    <div class="subsection introduction">
+      <div class="images">
+        <div id="sam_1">
+          <img src="assets/images/sam_1.jpeg" alt="samuel">
+        </div>
+        <div id="sam_2">
+          <img src="assets/images/sam_2.jpeg" alt="samuel">
+        </div>
+        <div id="sam_3">
+          <img src="assets/images/sam_3.jpeg" alt="samuel">
+        </div>
+        <div id="sam_4">
+          <img src="assets/images/sam_4.jpeg" alt="samuel">
+        </div>
+        <div id="sam_5">
+          <img src="assets/images/sam_5.jpeg" alt="samuel">
+        </div>
+        <!-- <img src="assets/images/northern-lights_1.jpeg" id="northern_lights_1" alt="northern lights"> -->
+        <!-- <img src="assets/images/northern-lights_2.jpeg" id="northern_lights_2" alt="northern lights"> -->
+        <!-- <img src="assets/images/northern-lights_3.jpeg" id="northern_lights_3" alt="northern lights"> -->
+      </div>
+      <div class="aboutMe">
+        <h2>About me</h2>
+        <p>Hello there. My name is Samuel Daurer.
+          I am currently studying Computer Science.
+          However, I also have some work experience in the field of web development already.
+      </div>
     </div>
     <div class="subsection">
       <h3>Tools/Languages I am comfortable with</h3>
@@ -99,7 +138,6 @@
     </div>
   </section>
 
-
   <footer class="footer">
     <div class="item">
       <a href="#about">About Me</a>
@@ -124,5 +162,6 @@
     </div>
   </footer>
 </body>
+
 
 </html>
