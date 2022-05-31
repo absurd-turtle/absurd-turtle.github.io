@@ -92,53 +92,66 @@ li {
 
 
 .contentSection {
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-  margin-right: 3rem;
-  margin-left: 3rem;
+  padding: 1rem;
 }
 
-.contentSection .subsection {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+@media screen and (min-width: 420px){
+  .contentSection {
+    display: flex;
+    flex-direction: column;
+      margin: 2rem;
+      margin-right: 3rem;
+      margin-left: 3rem;
+    }
+  .contentSection .subsection {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .contentSection.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .contentSection.about .subsection {
+    width: 100%;
+  }
+  .contentSection.about .subsection.introduction {
+    display: flex;
+    flex-direction: row;
+  }
+  .contentSection.about .subsection.introduction .aboutMe {
+    min-width: 0;
+    min-height: 0;
+    flex: 1 2 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .contentSection.about .subsection.introduction .aboutMe {
+    margin-left: 2rem;
+  }
+
+  .contentSection.about .subsection.introduction .images {
+    flex: 2 2 0%;
+  }
+
+  .subsection {
+    display: flex;
+  }
+  .contentSection.projects .subsection {
+    flex-direction: row;
+  }
+  .contentSection.projects .subsection .images {
+    flex: 1 1 auto;
+  }
+  .contentSection.projects h3 {
+    text-align: center;
+  }
 }
 
-/* .contentSection.about { */
-/*   display: flex; */
-/*   flex-direction: row; */
-/*   flex-wrap: wrap; */
-/* } */
-
-.contentSection.about .subsection.introduction {
-  display: flex;
-  flex-direction: row;
-}
-.contentSection.about .subsection.introduction .aboutMe {
-  min-width: 0;
-  min-height: 0;
-  flex: 1 2 0%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-left: 2rem;
-}
-.contentSection.about .subsection.introduction .images {
-  flex: 2 2 0%;
-}
-
-.subsection {
-  display: flex;
-}
-.contentSection.projects .subsection {
-  flex-direction: row;
-}
-.contentSection.projects .subsection .images {
-  flex: 1 1 auto;
-}
-.contentSection.projects h3 {
-  text-align: center;
-}
 
 .contentSection.about .subsection {
   flex-direction: column;
@@ -217,7 +230,7 @@ li {
 }
 
 #smvImages {
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 #northern_lights_1 {
@@ -231,11 +244,14 @@ li {
   width: 100vw;
 }
 
-#oot-text {
-  max-width: 30rem;
-  margin-right: 2rem;
-}
-#into-data-text {
-  max-width: 40rem;
-  margin-left: 2rem;
+
+@media screen and (min-width: 420px){
+  #oot-text {
+    max-width: 30rem;
+    margin-right: 2rem;
+  }
+  #into-data-text {
+    max-width: 40rem;
+    margin-left: 2rem;
+  }
 }

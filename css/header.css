@@ -3,11 +3,15 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  /* border-bottom: 2px solid var(--primary-300); */
 }
+@media screen and (min-width: 420px){
+  .header {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding: 1rem;
+  }
+}
+
 .header .item {
   position: relative;
   margin: 0.5rem;
@@ -18,8 +22,6 @@
   font-size: 4rem;
   margin-right: 2rem;
   font-family: 'Amatic SC', cursive;
-  /* font-family: 'Koulen', cursive; */
-  /* font-family: 'Rock Salt', cursive; */
 }
 .header .item a {
   padding: 0.5rem;
@@ -48,4 +50,7 @@
 .menu {
   position: absolute;
   top: 2rem;
+  z-index: 2;
+  background-color: var(--background);
+  border: 1px solid var(--primary-500);
 }
