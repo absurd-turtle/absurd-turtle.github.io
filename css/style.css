@@ -52,8 +52,6 @@ h4 {
   color: var(--secondary-300);
 }
 
-
-
 body {
   display: flex;
   flex-direction: column;
@@ -67,7 +65,7 @@ body {
 }
 
 a {
-  color: var(--primary-200);
+  color: var(--primary-500);
 }
 a:visited {
   color: var(--secondary-600);
@@ -92,54 +90,6 @@ li {
   border: 1px solid var(--primary-700);
 }
 
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  /* border-bottom: 2px solid var(--primary-300); */
-}
-.header .item {
-  margin: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-.header .item.name {
-  font-size: 4rem;
-  margin-right: 2rem;
-  font-family: 'Amatic SC', cursive;
-  /* font-family: 'Koulen', cursive; */
-  /* font-family: 'Rock Salt', cursive; */
-}
-.header .item a {
-  padding: 0.5rem;
-  height: 1.5rem;
-  color: var(--primary-200);
-  border-bottom: 1px solid var(--primary-200);
-}
-.header .item a:visited {
-  color: var(--secondary-600);
-  border-bottom: 1px solid var(--secondary);
-}
-.header .item a:hover {
-  color: var(--primary-100);
-  border-bottom: 1px solid var(--primary-100);
-}
-.header .item a:active {
-  color: var(--primary-300);
-  border-bottom: 1px solid var(--primary-300);
-}
-
-.header .item a {
-  text-decoration: none;
-}
-
-#careerMenu {
-  display: hidden;
-}
 
 .contentSection {
   display: flex;
@@ -173,9 +123,24 @@ li {
   align-items: flex-end;
   margin-left: 2rem;
 }
+.contentSection.about .subsection.introduction .images {
+  flex: 2 2 0%;
+}
+
+.subsection {
+  display: flex;
+}
+.contentSection.projects .subsection {
+  flex-direction: row;
+}
+.contentSection.projects .subsection .images {
+  flex: 1 1 auto;
+}
+.contentSection.projects h3 {
+  text-align: center;
+}
 
 .contentSection.about .subsection {
-  display: flex;
   flex-direction: column;
   align-items: right;
   justify-content: flex-end;
@@ -191,6 +156,17 @@ li {
   text-align: center;
 }
 .contentSection.about .subsection ul {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contentSection.career h2 {
+  text-align: center;
+}
+.contentSection.career h3 {
+  text-align: center;
+}
+.contentSection.career ul {
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -238,4 +214,28 @@ li {
 }
 .footer .item a {
   padding: 0.2rem;
+}
+
+#smvImages {
+  margin-right: 2rem;
+}
+
+#northern_lights_1 {
+  /* clip-path: path('M 0,600 C 0,600 0,300 0,300 C 50,341 101,382 169,400 C 236,417 319,411 399,397 C 478,382 552,359 617,340 C 681,320 734,304 799,284 C 863,263 937,237 1016,255 C 1094,272 1176,334 1248,349 C 1319,363 1379,331 2000,300 C 2000,300 2000,600 2000,600 Z'); */
+  /* clip-path: path('m -1.0465737,137.59898 c 0,0 202.5506937,-134.34593 317.5732937,-134.99165 131.19725,-0.73652 182.17947,130.82977 312.34863,114.42084 48.64916,-6.13265 120.58445,-48.44648 169.44673,-52.54874 121.17897,-10.17364 146.21095,131.3402 261.56362,92.84862 59.459,-19.84064 98.9091,-53.26666 145.2813,-95.44061 67.7244,-61.59303 164.9478,-70.78963 244.6188,-25.7028 107.408,60.78354 112.7085,192.63996 230.1723,214.0354 97.1155,17.6891 242.073,-75.97309 242.073,-75.97309 v 762.55414 c 0,0 -138.0458,55.96813 -210.2435,52.87849 C 1602.1982,984.98979 1585.8233,875.22746 1471.074,895.66692 1388.0462,910.45605 1340.2881,1079.5345 1241.3268,1078.957 1121.8471,1078.2597 1060.251,896.55122 941.61705,882.34288 822.83611,868.11693 798.95639,1007.5131 666.23964,1009.8795 547.57825,1011.9954 517.44385,891.11341 401.06449,914.36951 324.02987,929.76335 237.21615,992.56755 160.25316,1008.3156 100.08882,1020.6263 1.9080098,914.14273 1.9080098,914.14273 Z'); */
+  clip-path: path('m 0,137 c 0,0 202,-134 317,-134 131,0 182,130 312,114 48,-6 120,-48 169,-52 121,-10 146,131 261,92 59,-19 98,-53 145,-95 67,-61 164,-70 244,-25 107,60 112,192 230,214 97,17 242,-75 242,-75 v 762 c 0,0 -138,55 -210,52 -109,-4 -125,-114 -240,-94 -83,14 -127,164 -226,164 C 1125,1059 1060,896 941,882 822,868 798,1007 666,1009 547,1011 517,891 401,914 324,929 237,992 160,1008 100,1020 1,914 1,914 Z');
+}
+
+.sectionSplitter {
+  /* height: 50vh; */
+  width: 100vw;
+}
+
+#oot-text {
+  max-width: 30rem;
+  margin-right: 2rem;
+}
+#into-data-text {
+  max-width: 40rem;
+  margin-left: 2rem;
 }

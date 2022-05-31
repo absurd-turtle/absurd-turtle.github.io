@@ -7,27 +7,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/images.css" rel="stylesheet">
+  <link href="css/button.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/slider.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC&family=Koulen&family=Montserrat:wght@100;200;300;400;500&family=Rock+Salt&display=swap"
     rel="stylesheet">
-
+  <script type='text/javascript' src='vanilla-slider.js'></script>
   <script>
-    function toggleCareerMenu() {
-      let careerMenu = document.getElementById("careerMenu")
+    function toggleMenu(menu) {
+      let buttonId = menu + "Button"
+      let menuId = menu + "Menu"
+      let button = document.getElementById(buttonId)
+      let careerMenu = document.getElementById(menuId)
+
       if (careerMenu.style.visibility == "visible") {
         careerMenu.style.visibility = "hidden"
+        button.innerHTML = "&gt;"
       }
+
       else {
         careerMenu.style.visibility = "visible"
+        button.innerHTML = "&lt;"
       }
+    }
+  </script>
+  <script>
+    function showSlider(images) {
+      var containerId = 'slider';
+
+      var options = {
+        transitionTime: 500,
+        transitionZoom: 'in',
+        bullets: true,
+        arrows: true,
+        arrowsHide: true,
+        images
+      }
+
+      var slider = createSlider(containerId, options);
+      document.getElementById('sliderModal').style.display = "block"
+    }
+    function hideSlider() {
+      document.getElementById('sliderModal').style.display = "none"
     }
   </script>
 </head>
 
 <body>
-  <header class="header">
+  <div id="sliderModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onClick="hideSlider()">&times;</span>
+      <div id='slider'></div>
+    </div>
+  </div>
+
+  <header class=" header">
     <div class="item name">
       Samuel Daurer
     </div>
@@ -37,16 +74,25 @@
     </div>
     <div class="item">
       <a href="#projects">Projects</a>
+      <button id="projectsButton" onclick="toggleMenu('projects')">&gt;</button>
+      <div id="projectsMenu" class="menu" style="visibility: hidden;">
+        <div class="item">
+          <a href="#commercialProjects">commercial projects</a>
+        </div>
+        <div class="item">
+          <a href="#openSourceProjects">open source projects</a>
+        </div>
+      </div>
     </div>
     <div class="item">
       <a href="#career">Career</a>
-      <button onclick="toggleCareerMenu()">&gt;</button>
-      <div id="careerMenu" style="visibility: hidden;">
-        <div class=" item">
+      <button id="careerButton" onclick="toggleMenu('career')">&gt;</button>
+      <div id="careerMenu" class="menu" style="visibility: hidden;">
+        <div class="item">
           <a href="#academicCareer">academic career</a>
         </div>
         <div class="item">
-          <a href="#workCareer">work career</a>
+          <a href="#workCareer">work experience</a>
         </div>
       </div>
     </div>
@@ -54,7 +100,13 @@
 
   <section class="contentSection about" id="about" ref="about">
     <div class="subsection introduction">
-      <div class="images">
+      <div class="images rhombus" onclick="showSlider([
+          'assets/images/sam_1.jpeg',
+          'assets/images/sam_2.jpeg',
+          'assets/images/sam_3.jpeg',
+          'assets/images/sam_4.jpeg',
+          'assets/images/sam_5.jpeg',
+          ])">
         <div id="sam_1">
           <img src="assets/images/sam_1.jpeg" alt="samuel">
         </div>
@@ -70,54 +122,321 @@
         <div id="sam_5">
           <img src="assets/images/sam_5.jpeg" alt="samuel">
         </div>
-        <!-- <img src="assets/images/northern-lights_1.jpeg" id="northern_lights_1" alt="northern lights"> -->
-        <!-- <img src="assets/images/northern-lights_2.jpeg" id="northern_lights_2" alt="northern lights"> -->
-        <!-- <img src="assets/images/northern-lights_3.jpeg" id="northern_lights_3" alt="northern lights"> -->
       </div>
       <div class="aboutMe">
         <h2>About me</h2>
         <p>Hello there. My name is Samuel Daurer.
           I am currently studying Computer Science.
-          However, I also have some work experience in the field of web development already.
+          I am a 23 year old developer from Austria currently based in Finland.
+          I have a great interest in technology as well as art and design.
       </div>
     </div>
     <div class="subsection">
       <h3>Tools/Languages I am comfortable with</h3>
       <ul>
-        <li>Vue</li>
-        <li>Typescript</li>
-        <li>JavaScript</li>
-        <li>nodeJS</li>
-        <li>GraphQL</li>
-        <li>REST</li>
-        <li>git</li>
-        <li>linux</li>
-        <li>docker</li>
-        <li>ArangoDB</li>
+        <li>
+          <a href="https://vuejs.org">Vue</a>
+        </li>
+        <li>
+          <a href="https://www.typescriptlang.org/">Typescript</a>
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/javascript">
+            JavaScript
+          </a>
+        </li>
+        <li>
+          <a href="https://nodejs.org/en/">
+            nodeJS
+          </a>
+        </li>
+        <li>
+          <a href="https://graphql.org/">
+            GraphQL
+          </a>
+        </li>
+        <li>
+          <a href="https://www.w3.org/2001/sw/wiki/REST">REST</a>
+        </li>
+        <li>
+          <a href="https://git-scm.com/">git</a>
+        </li>
+        <li>
+          <a href="https://www.kernel.org/">
+            linux
+          </a>
+        </li>
+        <li>
+          <a href="https://www.docker.com/">
+            docker
+          </a>
+        </li>
+        <li>
+          <a href="https://www.arangodb.com/">
+            ArangoDB
+          </a>
+        </li>
       </ul>
     </div>
     <div class="subsection">
       <h3>Tools/Languages I have some knowledge of</h3>
       <ul>
-        <li>Scala</li>
-        <li>Java</li>
-        <li>Python</li>
-        <li>C</li>
-        <li>OpenGL</li>
-        <li>React</li>
-        <li>Angular</li>
+        <li>
+          <a href="https://www.scala-lang.org/">Scala</a>
+        </li>
+        <li>
+          <a href="https://www.java.com/en/">Java</a>
+        </li>
+        <li>
+          <a href="https://www.python.org/">Python</a>
+        </li>
+        <li>
+          <a href="https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html">C</a>
+        </li>
+        <li>
+          <a href="https://www.opengl.org/">OpenGL</a>
+        </li>
+        <li>
+          <a href="https://reactjs.org/">React</a>
+        </li>
+        <li>
+          <a href="https://angular.io/">
+            Angular
+          </a>
+        </li>
       </ul>
     </div>
   </section>
 
-  <section class="contentSection projects" id="Projects" ref="Projects">
+  <section class="contentSection projects" id="projects" ref="projects">
     <h2>Projects</h2>
-    <h3>commercial</h3>
-    <h4><a href="https://into-data.at">into-data</a></h4>
+    <h3 id="commercialProjects" ref="commercialProjects">commercial</h3>
+    <div class="subsection">
+      <div class="images parallelogramLeft" onclick="showSlider([
+        'assets/images/into-data/grafik-4-1024x725.png', 
+        'assets/images/into-data/2021-01-21-11_45_55-Orders.jpg',
+        'assets/images/into-data/2021-03-20-19_16_45-Warenstrom.jpg',
+        'assets/images/into-data/2021-01-05-19_04_58-Auslieferwerk-vs.-status.jpg',
+        'assets/images/into-data/2021-01-05-15_34_35-Bestatigte-Menge-.lt_.-0.1.jpg',
+        'assets/images/into-data/2021-03-20-19_13_34-Auslieferwerk-PLZ12-Graph.jpg',
+        'assets/images/into-data/2020-12-30-08_55_19-Bestelldatum-vs-Lieferdatum.jpg',
+        'assets/images/into-data/2020-12-30-08_55_19-Bestelldatum-vs-Lieferdatum-kommentiert-1024x761.jpg'
+      ])">
+        <div>
+          <img src="assets/images/into-data/grafik-4-1024x725.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2021-01-21-11_45_55-Orders.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2021-03-20-19_16_45-Warenstrom.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2021-01-05-19_04_58-Auslieferwerk-vs.-status.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2021-01-05-15_34_35-Bestatigte-Menge-.lt_.-0.1.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2021-03-20-19_13_34-Auslieferwerk-PLZ12-Graph.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2020-12-30-08_55_19-Bestelldatum-vs-Lieferdatum.jpg" alt="">
+        </div>
+        <div>
+          <img src="assets/images/into-data/2020-12-30-08_55_19-Bestelldatum-vs-Lieferdatum-kommentiert-1024x761.jpg"
+            alt="">
+        </div>
+      </div>
+      <div id="into-data-text">
+        <h4><a href="https://into-data.at">into-data</a></h4>
+        is a web application which represents relational data as an interactive graph.
+        It's main purpose is to help businesses and consultants to understand and make use of their data in a
+        meaningful
+        way.
+        It can be used to restructure the data, find outliers, create all kind of graphs, project the data to a
+        geographical map, etc.
+      </div>
+    </div>
 
-    <h3>open-source</h3>
-    <h4><a href="https://app.out-of-tune.org">out-of-tune</a></h4>
-    <h4><a href="">smv</a></h4>
+    <h3 id="openSourceProjects" ref="openSourceProjects">open-source</h3>
+    <div class="subsection">
+      <div id="oot-text">
+        <h4><a href="https://app.out-of-tune.org">out-of-tune</a></h4>
+        is a web application where music enthusiasts can navigate the vast amount of music data in an intuitive
+        way.
+        The purpose is to break out of the bubble algorithms may have created for you and experience new music in an
+        approachable way.
+        A network graph is used to visualize genres, artists, albums and songs and the corresponding connections
+        between
+        them. The user can interact with the graph to expand more nodes or reduce the amount of nodes.
+        One can either start out with the genre overview or dive into ones favorite playlist and start exploring from
+        there.
+
+        The application was realized with Vue, GraphQL, nodeJS and ArangoDB.
+
+        The software is free and open source and was published on github.
+        <a href="https://github.com/out-of-tune/OOT">https://github.com/out-of-tune/OOT</a>
+      </div>
+      <div class="images parallelogram" onclick="showSlider([
+         'assets/images/oot/out-of-tune_1.png',
+         'assets/images/oot/out-of-tune_2.png',
+         'assets/images/oot/out-of-tune_3.png',
+         'assets/images/oot/out-of-tune_4.png',
+         'assets/images/oot/out-of-tune_5.png',
+         'assets/images/oot/out-of-tune_6.png'
+      ])">
+        <div>
+          <img src="assets/images/oot/out-of-tune_1.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/oot/out-of-tune_2.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/oot/out-of-tune_3.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/oot/out-of-tune_4.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/oot/out-of-tune_5.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/oot/out-of-tune_6.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div id="smvImages" class="images triangle" onclick="showSlider([
+          'assets/images/smv/smv_7.png',
+          'assets/images/smv/smv_5.png',
+          'assets/images/smv/smv_6.png',
+          'assets/images/smv/smv_1.png',
+          'assets/images/smv/smv_8.png',
+          'assets/images/smv/smv_9.png',
+        ])">
+        <div>
+          <img src="assets/images/smv/smv_7.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/smv/smv_5.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/smv/smv_6.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/smv/smv_1.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/smv/smv_8.png" alt="">
+        </div>
+        <div>
+          <img src="assets/images/smv/smv_9.png" alt="">
+        </div>
+      </div>
+      <div>
+        <h4><a href="">smv</a></h4>
+        stands for Sam's Music Visualizer and is my attempt at creative coding and resembles my journey of learning
+        OpenGl
+        and implementing a simple graphics pipeline.
+        I want to approve on this application in the future and treat it as an outlet for my creative potential. :)
+
+        The project was created with Scala and LWJGL.
+      </div>
+    </div>
+  </section>
+
+  <div class="sectionSplitter">
+    <img src="assets/images/northern-lights_1.jpeg" id="northern_lights_1" alt="northern lights">
+  </div>
+
+  <section id="career" ref="career" class="contentSection career">
+    <h2>Career</h2>
+    <h3>work experience</h3>
+    <ul>
+
+      <li>
+        <div class="date">
+          07.2015
+        </div>
+        <div class="position">
+          IT Summer Intern
+        </div>
+        <div class="company">
+          LISEC Holding GmbH
+        </div>
+      </li>
+      <li>
+        <div class="date">
+          08.2016
+        </div>
+        <div class="position">
+          IT Summer Intern
+        </div>
+        <div class="company">
+          Resch &amp; Frisch Holding GmbH
+        </div>
+      </li>
+      <li>
+        <div class="date">
+          08.2017
+        </div>
+        <div class="position">
+          IT Summer Intern
+        </div>
+        <div class="company">
+          Resch &amp; Frisch Holding GmbH
+        </div>
+      </li>
+      <li>
+        <div class="date">
+          2019-2021
+        </div>
+        <div class="position">
+          software engineer
+        </div>
+        <div class="company">
+          ipcb e.u.
+        </div>
+      </li>
+    </ul>
+
+    <h3>academic career</h3>
+    <ul>
+      <li>
+        <div class="date">
+          2013-2018
+        </div>
+        <div class="category">
+          high school
+        </div>
+        <div class="school">
+          IT-HTL Ybbs
+        </div>
+      </li>
+      <li>
+        <div class="date">
+          2019-now
+        </div>
+        <div class="category">
+          Bachelor in Software and Information Engineering
+        </div>
+        <div class="school">
+          TU Wien
+        </div>
+      </li>
+      <li>
+        <div class="date">
+          2022-now
+        </div>
+        <div class="category">
+          Exchange Semester in Computer Science
+        </div>
+        <div class="school">
+          Aalto University
+        </div>
+      </li>
+    </ul>
   </section>
 
   <section class="contentSection contact" id="contact" ref="contact">
@@ -158,10 +477,9 @@
       <a href="#academicCareer">academic career</a>
     </div>
     <div class="item">
-      <a href="#workCareer">work career</a>
+      <a href="#workCareer">work experience</a>
     </div>
   </footer>
 </body>
-
 
 </html>

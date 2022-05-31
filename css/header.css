@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  /* border-bottom: 2px solid var(--primary-300); */
+}
+.header .item {
+  position: relative;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.header .item.name {
+  font-size: 4rem;
+  margin-right: 2rem;
+  font-family: 'Amatic SC', cursive;
+  /* font-family: 'Koulen', cursive; */
+  /* font-family: 'Rock Salt', cursive; */
+}
+.header .item a {
+  padding: 0.5rem;
+  height: 1.5rem;
+  color: var(--primary-500);
+  border-bottom: 1px solid var(--primary-500);
+  height: fit-content;
+}
+.header .item a:visited {
+  color: var(--secondary-600);
+  border-bottom: 1px solid var(--secondary);
+}
+.header .item a:hover {
+  color: var(--primary-100);
+  border-bottom: 1px solid var(--primary-100);
+}
+.header .item a:active {
+  color: var(--primary-300);
+  border-bottom: 1px solid var(--primary-300);
+}
+
+.header .item a {
+  text-decoration: none;
+}
+
+.menu {
+  position: absolute;
+  top: 2rem;
+}

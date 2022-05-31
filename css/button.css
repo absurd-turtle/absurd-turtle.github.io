@@ -1,0 +1,14 @@
+button {
+  background-color: var(--background-color);
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+  text-decoration: none;
+}
+button:hover {
+  color: var(--primary-200);
+  border: 1px solid var(--primary-200);
+}
+button:active {
+  color: var(--primary-800);
+  border: 1px solid var(--primary-800);
+}
